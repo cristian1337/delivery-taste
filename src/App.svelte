@@ -39,12 +39,15 @@
 
     let cont2 = Cont;
     
+    function atras(){
+        window.history.back();
+    }
 </script>
 	
 <Router url='{url}'>
 <div class="header sombra">
 	<img src="../imagenes/logo-taste.jpg" height="40px" alt="logo">
-	<img class="flecha-atras" src="../imagenes/atras.svg" height="20px" alt="atras">
+	<img on:click={atras} class="flecha-atras" src="../imagenes/atras.svg" height="20px" alt="atras">
 </div>
 
 <div>

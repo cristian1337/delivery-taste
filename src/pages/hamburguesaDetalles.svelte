@@ -3,6 +3,7 @@
     /*import {tipoPan, salsas, acompañantes, adiciones, bebida, preferencias, unidades} from '../store.js';*/
     import { NombreCliente, Identificacion, ContadorCarrito } from '../store.js';
     import { db } from '../firebase';
+    import { navigate } from "svelte-routing";
     export let id;
 
     let Nombre;
@@ -72,6 +73,7 @@
             ...pedido, createdAt: Date.now()
         });
         console.log(pedido);
+        navigate("/hamburguesas", { replace: true });
     };
 
     let pedido = {
@@ -141,13 +143,39 @@
 
     window.addEventListener("DOMContentLoaded", () => {
         const checks = document.querySelectorAll('.check');
-        let contadorcheck = 0;
+        let check = false;
+        let contadorCheck = 0;
         checks.forEach(btn => {
             
             btn.addEventListener('click', (e)=> {
-                contadorcheck += 1;
+                contadorCheck += 1;
+                if (contadorCheck == 1){
+                    check = false;
+                }else if((contadorCheck % 2) == 0){
+                    check = true;
+                }
 
-                if (contadorcheck === 1){
+                if (e.target.dataset.espec == "codorniz" && check == false){
+                    precioP = 3000 + precioP;
+                    pedido.precio = 3000 + pedido.precio;
+                    check = true;
+                }else if(e.target.dataset.espec == "codorniz" && check == true){
+                    precioP = precioP - 3000;
+                    pedido.precio = pedido.precio - 3000;
+                    check = false;
+                }
+
+                if (e.target.dataset.espec == "francesa" && check == false){
+                    precioP = 5000 + precioP;
+                    pedido.precio = 5000 + pedido.precio;
+                    check = true;
+                }else if(e.target.dataset.espec == "francesa" && check == true){
+                    precioP = precioP - 5000;
+                    pedido.precio = pedido.precio - 5000;
+                    check = false;
+                }
+
+                /*if (contadorcheck === 1){
                     precioP = parseInt(e.target.dataset.precio, 10) + precioP;
                 
                     pedido.precio = parseInt(e.target.dataset.precio, 10) + pedido.precio;
@@ -157,9 +185,7 @@
                     pedido.precio = pedido.precio - parseInt(e.target.dataset.precio, 10);
 
                     contadorcheck = 0;
-                }
-
-                console.log(e.target.dataset.precio);
+                }*/
 
             });
             
@@ -241,28 +267,28 @@
         <div class="opciones">
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"huevo codorniz"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-precio="3000"></span>
-                <span class="custom-radio-checkbox__text">Huevo de codorniz +$3.000</span>
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="codorniz"></span>
+                <span class="custom-radio-checkbox__text check" data-espec="codorniz">Huevo de codorniz +$3.000</span>
             </label>
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input"  type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas a la francesa"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-precio="5000"></span>
-                <span class="custom-radio-checkbox__text">Papas a la francesa +$5.000</span>
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="francesa"></span>
+                <span class="custom-radio-checkbox__text check" data-espec="francesa">Papas a la francesa +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas rusticas"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-precio="5000"></span>
-                <span class="custom-radio-checkbox__text">Papas rusticas +$5.000</span>
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="rusticas"></span>
+                <span class="custom-radio-checkbox__text check" data-espec="rusticas">Papas rusticas +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas criollas"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-precio="5000"></span>
-                <span class="custom-radio-checkbox__text">Papas criollas +$5.000</span>
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="criollas"></span>
+                <span class="custom-radio-checkbox__text check" data-espec="criollas">Papas criollas +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
                 <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Porción aros de cebolla"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-precio="6000"></span>
-                <span class="custom-radio-checkbox__text">Porción aros de cebolla x 7 und +$6.000</span>
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="aros-cebolla"></span>
+                <span class="custom-radio-checkbox__text check" data-espec="aros-cebolla">Porción aros de cebolla x 7 und +$6.000</span>
             </label>
         </div>
 

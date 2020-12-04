@@ -1,9 +1,18 @@
 <script>
     import {Router, Route, Link, link} from 'svelte-routing';
-    import { NombreCliente, Identificacion } from '../store.js';
+    import { NombreCliente, Identificacion, TelefonoU, DireccionU } from '../store.js';
+
+    /*window.addEventListener('DOMContentLoaded', () =>{
+        if (Nom != "" && iden != "" && tel != "" && dir != ""){
+            cerrar();
+            console.log("hola")
+        };
+    })*/
 
     let iden;
     let Nom;
+    let tel;
+    let dir;
 
     const unsubscribe2 = Identificacion.subscribe(value => {
 		iden = value;
@@ -13,34 +22,46 @@
 		Nom = value;
     });
 
+    const unsubscribe3 = TelefonoU.subscribe(value => {
+		tel = value;
+    });
+
+    const unsubscribe4 = DireccionU.subscribe(value => {
+		dir = value;
+    });
+
     let Nombre = '';
     let NumeroIden = '';
+    let Telefono = '';
+    let Direccion = '';
 
-   
 
     console.log(iden);
     console.log(Nom);
 
-    function cerrarPopup(){
-        if (Nom != "" && iden != ""){
-            cerrar();
-        };
-    };
-
     function cerrar() {
         const popup = document.getElementById('popup');
-        popup.style.display = 'none';
+        if (Nom != "" && iden != "" && tel != "" && dir != ""){
+            popup.style.display = 'none';
+        };
     };
 
     const handleEnviar = e => {
         e.preventDefault();
         NombreCliente.set(Nombre);
         Identificacion.set(NumeroIden);
+        TelefonoU.set(Telefono);
+        DireccionU.set(Direccion);
 
-        if (Nom != "" && iden != "") {
+        if (Nom != "" && iden != "" && tel != "" && dir != "") {
             cerrar();
         };
+        console.log(Nombre);
+        console.log(NumeroIden);
+        console.log(Telefono);
+        console.log(Direccion);
     };
+
 
 </script>
 <div class="container">
@@ -83,12 +104,26 @@
         <div id="popup" class="overlay">
             <div id="popupBody">
                 <h2>¡Bienvenido!</h2>
-                <button id="cerrar" on:click={cerrarPopup}>&times;</button>
+                <button id="cerrar" on:click={cerrar}>&times;</button>
                 <div class="popupContent">
                     <p>Regalanos tus datos &#128512;</p>
                     <form on:submit={handleEnviar}>
-                        <input type="text" placeholder="Nombre" bind:value={Nombre}>
-                        <input type="number" placeholder="Identificación" bind:value={NumeroIden}>
+                        <div class="form-inicio">
+                            <input type="text" placeholder="Nombre" bind:value={Nombre}>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-inicio">
+                            <input type="number" placeholder="Identificación" bind:value={NumeroIden}>
+                            <i class="fas fa-id-badge"></i>
+                        </div>
+                        <div class="form-inicio">
+                            <input type="number" placeholder="Número celular" bind:value={Telefono}>
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <div class="form-inicio">
+                            <textarea class="input-direccion" name="" id="" rows="3" placeholder="Dirección" bind:value={Direccion}></textarea>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <input class="enviar" type="submit" value="Guardar">
                     </form>
                 </div>
@@ -97,6 +132,23 @@
     </Router>
 </div>
 <style>
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-inicio {
+        position: relative;
+    }
+    .form-inicio i {
+        position: absolute;
+        left: 8px;
+        top: 5px;
+        font-size: 20px;
+    }
+    .form-inicio textarea, .form-inicio input {
+        width: 100%;
+        padding-left: 30px;
+    }
     .container {
             margin: 15px;
         }
