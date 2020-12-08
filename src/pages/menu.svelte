@@ -1,13 +1,8 @@
 <script>
     import {Router, Route, Link, link} from 'svelte-routing';
     import { NombreCliente, Identificacion, TelefonoU, DireccionU } from '../store.js';
-
-    /*window.addEventListener('DOMContentLoaded', () =>{
-        if (Nom != "" && iden != "" && tel != "" && dir != ""){
-            cerrar();
-            console.log("hola")
-        };
-    })*/
+    const popup = document.getElementById('popup');
+ 
 
     let iden;
     let Nom;
@@ -62,6 +57,13 @@
         console.log(Direccion);
     };
 
+    window.addEventListener("DOMContentLoaded", () => {
+        if (Nom == "" && iden == "" && tel == "" && dir == ""){
+            const popup = document.querySelector('.overlay');
+            popup.style.visibility = 'visible';
+        };
+    });
+    
 
 </script>
 <div class="container">
@@ -221,9 +223,8 @@
             right: 0;
             background: rgba(0, 0, 0, 0.7);
             transition: opacity 500ms;
-            visibility: hidden;
             opacity: 1;
-            visibility: visible;
+            visibility: hidden;
             z-index: 4;
         }
         #popupBody{

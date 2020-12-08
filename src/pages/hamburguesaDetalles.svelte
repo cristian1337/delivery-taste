@@ -149,31 +149,25 @@
             
             btn.addEventListener('click', (e)=> {
                 contadorCheck += 1;
-                if (contadorCheck == 1){
-                    check = false;
-                }else if((contadorCheck % 2) == 0){
+
+                if((contadorCheck % 2) == 0){
                     check = true;
+                }else {
+                    check = false;
                 }
 
                 if (e.target.dataset.espec == "codorniz" && check == false){
                     precioP = 3000 + precioP;
                     pedido.precio = 3000 + pedido.precio;
                     check = true;
+                    pedido.acompañantes = "huevos codorniz"
                 }else if(e.target.dataset.espec == "codorniz" && check == true){
                     precioP = precioP - 3000;
                     pedido.precio = pedido.precio - 3000;
+                    pedido.acompañantes = "";
                     check = false;
                 }
 
-                if (e.target.dataset.espec == "francesa" && check == false){
-                    precioP = 5000 + precioP;
-                    pedido.precio = 5000 + pedido.precio;
-                    check = true;
-                }else if(e.target.dataset.espec == "francesa" && check == true){
-                    precioP = precioP - 5000;
-                    pedido.precio = pedido.precio - 5000;
-                    check = false;
-                }
 
                 /*if (contadorcheck === 1){
                     precioP = parseInt(e.target.dataset.precio, 10) + precioP;
@@ -190,8 +184,342 @@
             });
             
         });
+        const check2 = document.getElementById('check2');
+        let contadorCheck2 = 0;
+        let checks2 = false;
+        check2.addEventListener('click', (e)=> {
+            contadorCheck2 += 1;
 
-        console.log(checks);
+                if((contadorCheck2 % 2) == 0){
+                    checks2 = true;
+                }else {
+                    checks2 = false;
+                }
+
+                if (e.target.dataset.espec2 == "francesa" && checks2 == false){
+                    precioP = 5000 + precioP;
+                    pedido.precio = 5000 + pedido.precio;
+                    checks2 = true;
+                    pedido.acompañantes = "Papas francesa"
+                }else if(e.target.dataset.espec2 == "francesa" && checks2 == true){
+                    precioP = precioP - 5000;
+                    pedido.precio = pedido.precio - 5000;
+                    pedido.acompañantes = "";
+                    checks2 = false;
+                }
+        });
+        const check3 = document.getElementById('check3');
+        let contadorCheck3 = 0;
+        let checks3 = false;
+        check3.addEventListener('click', (e)=> {
+            contadorCheck3 += 1;
+
+                if((contadorCheck3 % 2) == 0){
+                    checks3 = true;
+                }else {
+                    checks3 = false;
+                }
+
+                if (e.target.dataset.espec3 == "rusticas" && checks3 == false){
+                    precioP = 5000 + precioP;
+                    pedido.precio = 5000 + pedido.precio;
+                    checks3 = true;
+                    pedido.acompañantes = "Papas rusticas"
+                }else if(e.target.dataset.espec3 == "rusticas" && checks3 == true){
+                    precioP = precioP - 5000;
+                    pedido.precio = pedido.precio - 5000;
+                    pedido.acompañantes = "";
+                    checks3 = false;
+                }
+        });
+        const check4 = document.getElementById('check4');
+        let contadorCheck4 = 0;
+        let checks4 = false;
+        check4.addEventListener('click', (e)=> {
+            contadorCheck4 += 1;
+
+                if((contadorCheck4 % 2) == 0){
+                    checks4 = true;
+                }else {
+                    checks4 = false;
+                }
+
+                if (e.target.dataset.espec4 == "criollas" && checks4 == false){
+                    precioP = 5000 + precioP;
+                    pedido.precio = 5000 + pedido.precio;
+                    checks4 = true;
+                    pedido.acompañantes = "Papas criollas"
+                }else if(e.target.dataset.espec4 == "criollas" && checks4 == true){
+                    precioP = precioP - 5000;
+                    pedido.precio = pedido.precio - 5000;
+                    pedido.acompañantes = "";
+                    checks4 = false;
+                }
+        });
+        const check5 = document.getElementById('check5');
+        let contadorCheck5 = 0;
+        let checks5 = false;
+        check5.addEventListener('click', (e)=> {
+            contadorCheck5 += 1;
+
+                if((contadorCheck5 % 2) == 0){
+                    checks5 = true;
+                }else {
+                    checks5 = false;
+                }
+
+                if (e.target.dataset.espec5 == "aros-cebolla" && checks5 == false){
+                    precioP = 6000 + precioP;
+                    pedido.precio = 6000 + pedido.precio;
+                    checks5 = true;
+                    pedido.acompañantes = "Aros cebolla"
+                }else if(e.target.dataset.espec5 == "aros-cebolla" && checks5 == true){
+                    precioP = precioP - 6000;
+                    pedido.precio = pedido.precio - 6000;
+                    pedido.acompañantes = "";
+                    checks5 = false;
+                }
+        });
+        const check6 = document.getElementById('check6');
+        let contadorCheck6 = 0;
+        let checks6 = false;
+        check6.addEventListener('click', (e)=> {
+            contadorCheck6 += 1;
+
+                if((contadorCheck6 % 2) == 0){
+                    checks6 = true;
+                }else {
+                    checks6 = false;
+                }
+
+                if (e.target.dataset.espec6 == "cebolla-grille" && checks6 == false){
+                    precioP = 0 + precioP;
+                    pedido.precio = 0 + pedido.precio;
+                    checks6 = true;
+                    pedido.adiciones = "Cebolla grille"
+                }else if(e.target.dataset.espec6 == "cebolla-grille" && checks6 == true){
+                    precioP = precioP - 0;
+                    pedido.precio = pedido.precio - 0;
+                    pedido.adiciones = "";
+                    checks6 = false;
+                }
+        });
+        const check7 = document.getElementById('check7');
+        let contadorCheck7 = 0;
+        let checks7 = false;
+        check7.addEventListener('click', (e)=> {
+            contadorCheck7 += 1;
+
+                if((contadorCheck7 % 2) == 0){
+                    checks7 = true;
+                }else {
+                    checks7 = false;
+                }
+
+                if (e.target.dataset.espec7 == "piña" && checks7 == false){
+                    precioP = 2000 + precioP;
+                    pedido.precio = 2000 + pedido.precio;
+                    checks7 = true;
+                    pedido.adiciones = "Piña"
+                }else if(e.target.dataset.espec7 == "piña" && checks7 == true){
+                    precioP = precioP - 2000;
+                    pedido.precio = pedido.precio - 2000;
+                    pedido.adiciones = "";
+                    checks7 = false;
+                }
+        });
+        const check8 = document.getElementById('check8');
+        let contadorCheck8 = 0;
+        let checks8 = false;
+        check8.addEventListener('click', (e)=> {
+            contadorCheck8 += 1;
+
+                if((contadorCheck8 % 2) == 0){
+                    checks8 = true;
+                }else {
+                    checks8 = false;
+                }
+
+                if (e.target.dataset.espec8 == "aguacate" && checks8 == false){
+                    precioP = 2000 + precioP;
+                    pedido.precio = 2000 + pedido.precio;
+                    checks8 = true;
+                    pedido.adiciones = "Aguacate"
+                }else if(e.target.dataset.espec8 == "aguacate" && checks8 == true){
+                    precioP = precioP - 2000;
+                    pedido.precio = pedido.precio - 2000;
+                    pedido.adiciones = "";
+                    checks8 = false;
+                }
+        });
+        const check9 = document.getElementById('check9');
+        let contadorCheck9 = 0;
+        let checks9 = false;
+        check9.addEventListener('click', (e)=> {
+            contadorCheck9 += 1;
+
+                if((contadorCheck9 % 2) == 0){
+                    checks9 = true;
+                }else {
+                    checks9 = false;
+                }
+
+                if (e.target.dataset.espec9 == "tocineta" && checks9 == false){
+                    precioP = 2000 + precioP;
+                    pedido.precio = 2000 + pedido.precio;
+                    checks9 = true;
+                    pedido.adiciones = "Tocineta"
+                }else if(e.target.dataset.espec9 == "tocineta" && checks9 == true){
+                    precioP = precioP - 2000;
+                    pedido.precio = pedido.precio - 2000;
+                    pedido.adiciones = "";
+                    checks9 = false;
+                }
+        });
+        const check10 = document.getElementById('check10');
+        let contadorCheck10 = 0;
+        let checks10 = false;
+        check10.addEventListener('click', (e)=> {
+            contadorCheck10 += 1;
+
+                if((contadorCheck10 % 2) == 0){
+                    checks10 = true;
+                }else {
+                    checks10 = false;
+                }
+
+                if (e.target.dataset.espec10 == "cocacola" && checks10 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks10 = true;
+                    pedido.bebida = "Coca-Cola"
+                }else if(e.target.dataset.espec10 == "cocacola" && checks10 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks10 = false;
+                }
+        });
+        const check11 = document.getElementById('check11');
+        let contadorCheck11 = 0;
+        let checks11 = false;
+        check11.addEventListener('click', (e)=> {
+            contadorCheck11 += 1;
+
+                if((contadorCheck11 % 2) == 0){
+                    checks11 = true;
+                }else {
+                    checks11 = false;
+                }
+
+                if (e.target.dataset.espec11 == "tamarindo" && checks11 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks11 = true;
+                    pedido.bebida = "Tamarindo"
+                }else if(e.target.dataset.espec11 == "tamarindo" && checks11 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks11 = false;
+                }
+        });
+        const check12 = document.getElementById('check12');
+        let contadorCheck12 = 0;
+        let checks12 = false;
+        check12.addEventListener('click', (e)=> {
+            contadorCheck12 += 1;
+
+                if((contadorCheck12 % 2) == 0){
+                    checks12 = true;
+                }else {
+                    checks12 = false;
+                }
+
+                if (e.target.dataset.espec12 == "hit-tropical" && checks12 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks12 = true;
+                    pedido.bebida = "Hit tropical"
+                }else if(e.target.dataset.espec12 == "hit-tropical" && checks12 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks12 = false;
+                }
+        });
+        const check13 = document.getElementById('check13');
+        let contadorCheck13 = 0;
+        let checks13 = false;
+        check13.addEventListener('click', (e)=> {
+            contadorCheck13 += 1;
+
+                if((contadorCheck13 % 2) == 0){
+                    checks13 = true;
+                }else {
+                    checks13 = false;
+                }
+
+                if (e.target.dataset.espec13 == "hit-naranja" && checks13 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks13 = true;
+                    pedido.bebida = "Hit naranja"
+                }else if(e.target.dataset.espec13 == "hit-naranja" && checks13 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks13 = false;
+                }
+        });
+        const check14 = document.getElementById('check14');
+        let contadorCheck14 = 0;
+        let checks14 = false;
+        check14.addEventListener('click', (e)=> {
+            contadorCheck14 += 1;
+
+                if((contadorCheck14 % 2) == 0){
+                    checks14 = true;
+                }else {
+                    checks14 = false;
+                }
+
+                if (e.target.dataset.espec14 == "hit-mora" && checks14 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks14 = true;
+                    pedido.bebida = "Hit mora"
+                }else if(e.target.dataset.espec14 == "hit-mora" && checks14 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks14 = false;
+                }
+        });
+        const check15 = document.getElementById('check15');
+        let contadorCheck15 = 0;
+        let checks15 = false;
+        check15.addEventListener('click', (e)=> {
+            contadorCheck15 += 1;
+
+                if((contadorCheck15 % 2) == 0){
+                    checks15 = true;
+                }else {
+                    checks15 = false;
+                }
+
+                if (e.target.dataset.espec15 == "hit-mango" && checks15 == false){
+                    precioP = 2500 + precioP;
+                    pedido.precio = 2500 + pedido.precio;
+                    checks15 = true;
+                    pedido.bebida = "Hit mango"
+                }else if(e.target.dataset.espec15 == "hit-mango" && checks15 == true){
+                    precioP = precioP - 2500;
+                    pedido.precio = pedido.precio - 2500;
+                    pedido.bebida = "";
+                    checks15 = false;
+                }
+        });
     });
 
     
@@ -266,29 +594,29 @@
         </div>
         <div class="opciones">
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"huevo codorniz"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="codorniz"></span>
-                <span class="custom-radio-checkbox__text check" data-espec="codorniz">Huevo de codorniz +$3.000</span>
+                <input class="custom-radio-checkbox__input check" type="checkbox" data-espec="codorniz">
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                <span class="custom-radio-checkbox__text">Huevo de codorniz +$3.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input"  type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas a la francesa"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="francesa"></span>
-                <span class="custom-radio-checkbox__text check" data-espec="francesa">Papas a la francesa +$5.000</span>
+                <input id="check2" class="custom-radio-checkbox__input" data-espec2="francesa" type="checkbox">
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                <span class="custom-radio-checkbox__text">Papas a la francesa +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas rusticas"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="rusticas"></span>
-                <span class="custom-radio-checkbox__text check" data-espec="rusticas">Papas rusticas +$5.000</span>
+                <input id="check3" class="custom-radio-checkbox__input" type="checkbox" data-espec3="rusticas">
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                <span class="custom-radio-checkbox__text">Papas rusticas +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Papas criollas"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="criollas"></span>
-                <span class="custom-radio-checkbox__text check" data-espec="criollas">Papas criollas +$5.000</span>
+                <input id="check4" class="custom-radio-checkbox__input" type="checkbox" data-espec4="criollas">
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                <span class="custom-radio-checkbox__text">Papas criollas +$5.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input" type="checkbox" bind:group="{pedido.acompañantes}" value={"Porción aros de cebolla"}>
-                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox check" data-espec="aros-cebolla"></span>
-                <span class="custom-radio-checkbox__text check" data-espec="aros-cebolla">Porción aros de cebolla x 7 und +$6.000</span>
+                <input id="check5" class="custom-radio-checkbox__input" type="checkbox" data-espec5="aros-cebolla">
+                <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
+                <span class="custom-radio-checkbox__text">Porción aros de cebolla x 7 und +$6.000</span>
             </label>
         </div>
 
@@ -297,22 +625,22 @@
         </div>
         <div class="opciones">
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input" type="checkbox" bind:group={pedido.adiciones} value={"Cebolla grille"}>
+                <input id="check6" class="custom-radio-checkbox__input" type="checkbox" data-espec6="cebolla-grille">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Cebolla grille</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2000 bind:group={pedido.adiciones} value={"Piña"}>
+                <input id="check7" class="custom-radio-checkbox__input" type="checkbox" data-espec7="piña">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Piña +$2.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2000 bind:group={pedido.adiciones} value={"Aguacate"}>
+                <input id="check8" class="custom-radio-checkbox__input" type="checkbox" data-espec8="aguacate">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Aguacate +$2.000</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2000 bind:group={pedido.adiciones} value={"Tocineta"}>
+                <input id="check9" class="custom-radio-checkbox__input" type="checkbox" data-espec9="tocineta">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Tocineta +$2.000</span>
             </label>
@@ -323,32 +651,32 @@
         </div>
         <div class="opciones">
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Coca-Cola 250ml"}>
+                <input id="check10" class="custom-radio-checkbox__input check" type="checkbox" data-espec10="cocacola">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Coca-Cola 250ml +$2.500</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Tamarindo 300ml"}>
+                <input id="check11" class="custom-radio-checkbox__input check" type="checkbox" data-espec11="tamarindo">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Tamarindo 300ml +$2.500</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Hit tropical 300ml"}>
+                <input id="check12" class="custom-radio-checkbox__input check" type="checkbox" data-espec12="hit-tropical">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Hit tropical 300ml +$2.500</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Hit naranja piña 300ml"}>
+                <input id="check13" class="custom-radio-checkbox__input check" type="checkbox" data-espec13="hit-naranja">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Hit naranja piña 300ml +$2.500</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Hit mora piña 300ml"}>
+                <input id="check14" class="custom-radio-checkbox__input check" type="checkbox" data-espec14="hit-mora">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Hit mora 300ml +$2.500</span>
             </label>
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-precio=2500 bind:group={pedido.bebida} value={"Hit mango piña 300ml"}>
+                <input id="check15" class="custom-radio-checkbox__input check" type="checkbox" data-espec15="hit-mango">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Hit mango 300ml +$2.500</span>
             </label>

@@ -5,15 +5,26 @@
 	import Carrito from './pages/carrito.svelte'
     import Hamburguesas from './pages/hamburguesas.svelte';
     import HamburguesaDetalles from './pages/hamburguesaDetalles.svelte';
-    import { ContadorCarrito } from './store';
+    import { ContadorCarrito, NombreCliente, Identificacion } from './store';
 
     export let url = '';
 
+    
     let pedidos = [];
+    let Nombre;
+    let iden;
 
     var cantidad = 0;
 
-    db.collection('pedidos').onSnapshot(query => {
+    const unsubscribe3 = NombreCliente.subscribe(value => {
+		Nombre = value;
+    });
+    
+    const unsubscribe2 = Identificacion.subscribe(value => {
+		iden = value;
+    });
+
+    /*db.collection('pedidos').onSnapshot(query => {
         let docs = [];
         query.forEach(doc => {
             docs.push({...doc.data(), id: doc.id})
@@ -29,8 +40,29 @@
 
         
         console.log(cantidad);
+    });*/
+    db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
+        console.log(query);
+        let docs = [];
+        cantidad = 0;
+        query.forEach(doc => {
+            docs.push({...doc.data(), id: doc.id})
+            console.log(doc.data())
+            pedidos = [doc.data()];
+            for (var i=0; i < pedidos.length; i++){
+            cantidad = pedidos[i].unidades + cantidad;
+        };
+        ContadorCarrito.set(cantidad);
+        console.log(cantidad);
+        });
+        /*pedidos = [...docs];*/
+        
+
+        
+
+        
     });
-    
+
     let Cont;
 
     const unsubscribe = ContadorCarrito.subscribe(value => {
@@ -63,7 +95,7 @@
 	</div></Link>
 	<Link to='/carrito'><div>
 		<img src="../imagenes/carrito.svg" width="30px" alt="carrito">
-		<span class="detalles-carrito">{cantidad}</span>
+		<span class="detalles-carrito">{Cont}</span>
 	</div></Link>
 	<div>
 		<img src="../imagenes/usuario.svg" width="30px" alt="usuario">

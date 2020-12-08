@@ -17,22 +17,27 @@
     });
 
     db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
+        console.log(query);
         let docs = [];
+        cantidad = 0;
+        precio = 0;
         query.forEach(doc => {
             docs.push({...doc.data(), id: doc.id})
             console.log(doc.data())
-        });
-        pedidos = [...docs];
-        cantidad = 0;
-        precio = 0;
-
-        for (var i=0; i < pedidos.length; i++){
+            pedidos = [doc.data()];
+            for (var i=0; i < pedidos.length; i++){
             cantidad = pedidos[i].unidades + cantidad;
             precio = pedidos[i].precio + precio;
         };
-
         ContadorCarrito.set(cantidad);
         console.log(cantidad);
+        });
+        /*pedidos = [...docs];*/
+        
+
+        
+
+        
     });
 
     console.log(cantidad);
@@ -62,7 +67,7 @@
         </div>
         <div class="unidades">
             <img on:click={handleClickMenos} src="./imagenes/menos.svg" width="20px" alt="menos">
-            <p class="contador">{pedido.unidades}</p>
+            <p class="contador">{cantidad}</p>
             <img on:click={handleClickMas} src="./imagenes/agregar.svg" width="20px" alt="más">
         </div>
     </div>
