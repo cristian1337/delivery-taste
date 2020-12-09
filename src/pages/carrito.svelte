@@ -32,8 +32,8 @@
         ContadorCarrito.set(cantidad);
         console.log(cantidad);
         });
-        /*pedidos = [...docs];*/
-        
+        pedidos = [...docs];
+        console.log(...docs);
 
         
 
@@ -67,7 +67,7 @@
         </div>
         <div class="unidades">
             <img on:click={handleClickMenos} src="./imagenes/menos.svg" width="20px" alt="menos">
-            <p class="contador">{cantidad}</p>
+            <p class="contador">{pedido.unidades}</p>
             <img on:click={handleClickMas} src="./imagenes/agregar.svg" width="20px" alt="más">
         </div>
     </div>
