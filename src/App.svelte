@@ -42,7 +42,6 @@
         console.log(cantidad);
     });*/
     db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
-        console.log(query);
         let docs = [];
         cantidad = 0;
         query.forEach(doc => {

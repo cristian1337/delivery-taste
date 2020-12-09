@@ -141,52 +141,77 @@
         };
     };
 
-    window.addEventListener("DOMContentLoaded", () => {
-        const checks = document.querySelectorAll('.check');
+    window.addEventListener("DOMContentLoaded", function() {
+
+        const checks = document.getElementById('check');
         let check = false;
         let contadorCheck = 0;
-        checks.forEach(btn => {
-            
-            btn.addEventListener('click', (e)=> {
-                contadorCheck += 1;
-
-                if((contadorCheck % 2) == 0){
-                    check = true;
-                }else {
-                    check = false;
-                }
-
-                if (e.target.dataset.espec == "codorniz" && check == false){
-                    precioP = 3000 + precioP;
-                    pedido.precio = 3000 + pedido.precio;
-                    check = true;
-                    pedido.acompañantes = "huevos codorniz"
-                }else if(e.target.dataset.espec == "codorniz" && check == true){
-                    precioP = precioP - 3000;
-                    pedido.precio = pedido.precio - 3000;
-                    pedido.acompañantes = "";
-                    check = false;
-                }
-
-
-                /*if (contadorcheck === 1){
-                    precioP = parseInt(e.target.dataset.precio, 10) + precioP;
-                
-                    pedido.precio = parseInt(e.target.dataset.precio, 10) + pedido.precio;
-                }else if (contadorcheck === 2){
-                    precioP = precioP - parseInt(e.target.dataset.precio, 10);
-                
-                    pedido.precio = pedido.precio - parseInt(e.target.dataset.precio, 10);
-
-                    contadorcheck = 0;
-                }*/
-
-            });
-            
-        });
         const check2 = document.getElementById('check2');
         let contadorCheck2 = 0;
         let checks2 = false;
+        const check3 = document.getElementById('check3');
+        let contadorCheck3 = 0;
+        let checks3 = false;
+        const check4 = document.getElementById('check4');
+        let contadorCheck4 = 0;
+        let checks4 = false;
+        const check5 = document.getElementById('check5');
+        let contadorCheck5 = 0;
+        let checks5 = false;
+        const check6 = document.getElementById('check6');
+        let contadorCheck6 = 0;
+        let checks6 = false;
+        const check7 = document.getElementById('check7');
+        let contadorCheck7 = 0;
+        let checks7 = false;
+        const check8 = document.getElementById('check8');
+        let contadorCheck8 = 0;
+        let checks8 = false;
+        const check9 = document.getElementById('check9');
+        let contadorCheck9 = 0;
+        let checks9 = false;
+        const check10 = document.getElementById('check10');
+        let contadorCheck10 = 0;
+        let checks10 = false;
+        const check11 = document.getElementById('check11');
+        let contadorCheck11 = 0;
+        let checks11 = false;
+        const check12 = document.getElementById('check12');
+        let contadorCheck12 = 0;
+        let checks12 = false;
+        const check13 = document.getElementById('check13');
+        let contadorCheck13 = 0;
+        let checks13 = false;
+        const check14 = document.getElementById('check14');
+        let contadorCheck14 = 0;
+        let checks14 = false;
+        const check15 = document.getElementById('check15');
+        let contadorCheck15 = 0;
+        let checks15 = false;
+            
+        checks.addEventListener('click', (e)=> {
+            contadorCheck += 1;
+
+            if((contadorCheck % 2) == 0){
+                check = true;
+            }else {
+                check = false;
+            }
+
+            if (e.target.dataset.espec == "codorniz" && check == false){
+                precioP = 3000 + precioP;
+                pedido.precio = 3000 + pedido.precio;
+                check = true;
+                pedido.acompañantes = "huevos codorniz"
+            }else if(e.target.dataset.espec == "codorniz" && check == true){
+                precioP = precioP - 3000;
+                pedido.precio = pedido.precio - 3000;
+                pedido.acompañantes = "";
+                   check = false;
+            }
+
+        });
+        
         check2.addEventListener('click', (e)=> {
             contadorCheck2 += 1;
 
@@ -208,9 +233,7 @@
                     checks2 = false;
                 }
         });
-        const check3 = document.getElementById('check3');
-        let contadorCheck3 = 0;
-        let checks3 = false;
+        
         check3.addEventListener('click', (e)=> {
             contadorCheck3 += 1;
 
@@ -232,9 +255,7 @@
                     checks3 = false;
                 }
         });
-        const check4 = document.getElementById('check4');
-        let contadorCheck4 = 0;
-        let checks4 = false;
+        
         check4.addEventListener('click', (e)=> {
             contadorCheck4 += 1;
 
@@ -256,9 +277,7 @@
                     checks4 = false;
                 }
         });
-        const check5 = document.getElementById('check5');
-        let contadorCheck5 = 0;
-        let checks5 = false;
+        
         check5.addEventListener('click', (e)=> {
             contadorCheck5 += 1;
 
@@ -280,9 +299,7 @@
                     checks5 = false;
                 }
         });
-        const check6 = document.getElementById('check6');
-        let contadorCheck6 = 0;
-        let checks6 = false;
+        
         check6.addEventListener('click', (e)=> {
             contadorCheck6 += 1;
 
@@ -304,9 +321,7 @@
                     checks6 = false;
                 }
         });
-        const check7 = document.getElementById('check7');
-        let contadorCheck7 = 0;
-        let checks7 = false;
+        
         check7.addEventListener('click', (e)=> {
             contadorCheck7 += 1;
 
@@ -328,9 +343,7 @@
                     checks7 = false;
                 }
         });
-        const check8 = document.getElementById('check8');
-        let contadorCheck8 = 0;
-        let checks8 = false;
+        
         check8.addEventListener('click', (e)=> {
             contadorCheck8 += 1;
 
@@ -352,9 +365,7 @@
                     checks8 = false;
                 }
         });
-        const check9 = document.getElementById('check9');
-        let contadorCheck9 = 0;
-        let checks9 = false;
+        
         check9.addEventListener('click', (e)=> {
             contadorCheck9 += 1;
 
@@ -376,9 +387,7 @@
                     checks9 = false;
                 }
         });
-        const check10 = document.getElementById('check10');
-        let contadorCheck10 = 0;
-        let checks10 = false;
+        
         check10.addEventListener('click', (e)=> {
             contadorCheck10 += 1;
 
@@ -400,9 +409,7 @@
                     checks10 = false;
                 }
         });
-        const check11 = document.getElementById('check11');
-        let contadorCheck11 = 0;
-        let checks11 = false;
+        
         check11.addEventListener('click', (e)=> {
             contadorCheck11 += 1;
 
@@ -424,9 +431,7 @@
                     checks11 = false;
                 }
         });
-        const check12 = document.getElementById('check12');
-        let contadorCheck12 = 0;
-        let checks12 = false;
+        
         check12.addEventListener('click', (e)=> {
             contadorCheck12 += 1;
 
@@ -448,9 +453,7 @@
                     checks12 = false;
                 }
         });
-        const check13 = document.getElementById('check13');
-        let contadorCheck13 = 0;
-        let checks13 = false;
+        
         check13.addEventListener('click', (e)=> {
             contadorCheck13 += 1;
 
@@ -472,9 +475,7 @@
                     checks13 = false;
                 }
         });
-        const check14 = document.getElementById('check14');
-        let contadorCheck14 = 0;
-        let checks14 = false;
+        
         check14.addEventListener('click', (e)=> {
             contadorCheck14 += 1;
 
@@ -496,9 +497,7 @@
                     checks14 = false;
                 }
         });
-        const check15 = document.getElementById('check15');
-        let contadorCheck15 = 0;
-        let checks15 = false;
+        
         check15.addEventListener('click', (e)=> {
             contadorCheck15 += 1;
 
@@ -594,7 +593,7 @@
         </div>
         <div class="opciones">
             <label class="custom-radio-checkbox">
-                <input class="custom-radio-checkbox__input check" type="checkbox" data-espec="codorniz">
+                <input id="check" class="custom-radio-checkbox__input" type="checkbox" data-espec="codorniz">
                 <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
                 <span class="custom-radio-checkbox__text">Huevo de codorniz +$3.000</span>
             </label>

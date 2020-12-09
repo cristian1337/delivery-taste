@@ -1,6 +1,6 @@
 // server.js
 const { createServer } = require("http");
-const app = require("./dist/App.js");
+const app = require("./public/App.js");
 
 createServer((req, res) => {
   const { html } = app.render({ url: req.url });
