@@ -1,6 +1,7 @@
 <script>
 
     /*import {tipoPan, salsas, acompañantes, adiciones, bebida, preferencias, unidades} from '../store.js';*/
+    import { onMount } from 'svelte';
     import { NombreCliente, Identificacion, ContadorCarrito } from '../store.js';
     import { db } from '../firebase';
     import { navigate } from "svelte-routing";
@@ -73,7 +74,7 @@
             ...pedido, createdAt: Date.now()
         });
         console.log(pedido);
-        navigate("/hamburguesas", { replace: true });
+        navigate("/hamburguesas", { replace: false });
     };
 
     let pedido = {
@@ -141,7 +142,7 @@
         };
     };
 
-    window.addEventListener("DOMContentLoaded", function() {
+    onMount( function() {
 
         const checks = document.getElementById('check');
         let check = false;
