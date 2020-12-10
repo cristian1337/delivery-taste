@@ -2,7 +2,8 @@
     import {Router, Route, Link, link, links} from 'svelte-routing';
     import { db } from './firebase';
 	import Menu from './pages/menu.svelte';
-	import Carrito from './pages/carrito.svelte'
+    import Carrito from './pages/carrito.svelte'
+    import Usuario from './pages/usuario.svelte'
     import Hamburguesas from './pages/hamburguesas.svelte';
     import HamburguesaDetalles from './pages/hamburguesaDetalles.svelte';
     import { ContadorCarrito, NombreCliente, Identificacion } from './store';
@@ -82,7 +83,8 @@
 </div>
 
 <div>
-	<Route path="carrito" component="{Carrito}" />
+    <Route path="carrito" component="{Carrito}" />
+    <Route path="usuario" component="{Usuario}" />
     <Route path="/"><Menu /></Route>
     <Route path="hamburguesas"><Hamburguesas /></Route>
     <Route path='/hamburguesa/:id' let:params ><HamburguesaDetalles id ="{params.id}" /></Route>
@@ -96,9 +98,9 @@
 		<img src="../imagenes/carrito.svg" width="30px" alt="carrito">
 		<span class="detalles-carrito">{Cont}</span>
 	</div></Link>
-	<div>
+	<Link to='/usuario'><div>
 		<img src="../imagenes/usuario.svg" width="30px" alt="usuario">
-	</div>
+	</div></Link>
 </div>
 </Router>
 

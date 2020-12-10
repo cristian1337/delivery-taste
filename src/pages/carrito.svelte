@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte';
     import { db } from '../firebase';
     import { NombreCliente, Identificacion, ContadorCarrito } from '../store.js';
 
@@ -17,30 +18,22 @@
     });
 
     db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
-        console.log(query);
         let docs = [];
         cantidad = 0;
         precio = 0;
         query.forEach(doc => {
             docs.push({...doc.data(), id: doc.id})
-            console.log(doc.data())
+
             pedidos = [doc.data()];
             for (var i=0; i < pedidos.length; i++){
             cantidad = pedidos[i].unidades + cantidad;
             precio = pedidos[i].precio + precio;
         };
         ContadorCarrito.set(cantidad);
-        console.log(cantidad);
+
         });
         pedidos = [...docs];
-        console.log(...docs);
-
-        
-
-        
     });
-
-    console.log(cantidad);
 
     let contador = 1;
 
@@ -57,6 +50,12 @@
     };
 
 
+    const eliminar = event => {
+        console.log(event.target.dataset.id);
+        let identificacion = event.target.dataset.id;
+        db.collection('pedidos').doc(identificacion).delete();
+    };
+
 </script>
 <div class="container">
     {#each pedidos as pedido}
@@ -66,10 +65,25 @@
             <h5>{pedido.precio}</h5>
         </div>
         <div class="unidades">
-            <img on:click={handleClickMenos} src="./imagenes/menos.svg" width="20px" alt="menos">
-            <p class="contador">{pedido.unidades}</p>
-            <img on:click={handleClickMas} src="./imagenes/agregar.svg" width="20px" alt="más">
+            <div class="cantidad">
+                <p>Cantidad:</p>
+                <p class="contador"><strong>{pedido.unidades}</strong></p>
+            </div>
+            <button class="btn-borrar" on:click|self={eliminar} data-id="{pedido.id}"><i class="far fa-trash-alt"></i></button>
         </div>
+        <details>
+            <summary>
+                Especificaciones
+            </summary>
+            <ul>
+                <li>Tipo de pan: {pedido.tipoDePan}</li>
+                <li>Salsa: {pedido.salsasH}</li>
+                <li>Acompañantes: {pedido.acompañantes}</li>
+                <li>Adiciones: {pedido.adiciones}</li>
+                <li>Bebida: {pedido.bebida}</li>
+                <li>Preferencias: {pedido.preferencias}</li>
+            </ul>
+        </details>
     </div>
     {/each}
     
@@ -92,6 +106,13 @@
 </div>
 
 <style>
+    summary {
+        outline: 0;
+    }
+    .cantidad {
+        display: flex;
+        align-items: center;
+    }
     .contenedorProducto {
             display: flex;
             flex-direction: column;
@@ -116,10 +137,7 @@
         }
         .unidades {
             display: flex;
-            justify-content: start;
-        }
-        .unidades img, .unidades p{
-            margin-right: 8px;
+            justify-content: space-between;
         }
         .domicilio {
             border-top: 1px solid rgb(196, 196, 196);
@@ -153,5 +171,14 @@
             bottom: 50px;
             width: 100%;
             background: white;
+        }
+        .btn-borrar {
+            -webkit-box-shadow: 2px 2px 4px -1px rgba(0,0,0,0.35);
+            -moz-box-shadow: 2px 2px 4px -1px rgba(0,0,0,0.35);
+            box-shadow: 2px 2px 4px -1px rgba(0,0,0,0.35);
+            background-color: white;
+        }
+        .fa-trash-alt {
+            color: #F84C02;
         }
 </style>

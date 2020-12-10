@@ -105,7 +105,7 @@
         </div>
         <div id="popup" class="overlay">
             <div id="popupBody">
-                <h2>¡Bienvenido!</h2>
+                <h2>¡Bienvenido a TASTE!</h2>
                 <button id="cerrar" on:click={cerrar}>&times;</button>
                 <div class="popupContent">
                     <p>Regalanos tus datos &#128512;</p>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="form-inicio">
                             <input type="number" placeholder="Número celular" bind:value={Telefono}>
-                            <i class="fas fa-mobile"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </div>
                         <div class="form-inicio">
                             <textarea class="input-direccion" name="" id="" rows="3" placeholder="Dirección" bind:value={Direccion}></textarea>
@@ -128,12 +128,19 @@
                         </div>
                         <input class="enviar" type="submit" value="Guardar">
                     </form>
+                    <p class="info">Tus datos no seran guardados ni utilizados para enviar spam o publicidad, solo son para hacer llegar tu pedido y que estes al tanto de este.</p>
+                    <p class="info">Recuerda que el domicilio es variable y no se añade al total de esta compra, el costo de este te lo haremos llegar a tu whatsapp</p>
                 </div>
             </div>
         </div>
     </Router>
 </div>
 <style>
+    .info {
+        font-size: 10px;
+        text-align: justify;
+        margin-bottom: 5px !important;
+    }
     form {
         display: flex;
         flex-direction: column;
@@ -240,9 +247,9 @@
         }
         #cerrar {
             position: absolute;
-            top: 0px;
-            right: 5px;
-            font-size: 30px;
+            top: 15px;
+            right: -2px;
+            font-size: 32px;
             font-weight: bold;
             text-decoration: none;
             color: #F00;
