@@ -39,6 +39,7 @@
         if (Nom != "" && iden != "" && tel != "" && dir != ""){
             popup.style.display = 'none';
         };
+        var notification = alertify.notify('Ingresa los datos solicitados', 'error', 5, function(){  console.log('dismissed'); });
     };
 
     const handleEnviar = e => {
