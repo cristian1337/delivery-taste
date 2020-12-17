@@ -1,5 +1,32 @@
 <script>
     import {Router, Route, Link, link} from 'svelte-routing';
+    import { db } from '../firebase';
+    import { Identificacion, ContadorCarrito } from '../store.js';
+
+    let pedidos = [];
+    let iden;
+    var cantidad = 0;
+    
+    const unsubscribe2 = Identificacion.subscribe(value => {
+		iden = value;
+    });
+
+    db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
+        let docs = [];
+        cantidad = 0;
+        query.forEach(doc => {
+            docs.push({...doc.data(), id: doc.id})
+
+            pedidos = [doc.data()];
+            for (var i=0; i < pedidos.length; i++){
+            cantidad = pedidos[i].unidades + cantidad;
+        };
+        ContadorCarrito.set(cantidad);
+
+        });
+        pedidos = [...docs];
+    });
+
     const hamburguesas = [
     {
         id: 1,

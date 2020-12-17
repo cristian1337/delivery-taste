@@ -38,8 +38,9 @@
         const popup = document.getElementById('popup');
         if (Nom != "" && iden != "" && tel != "" && dir != ""){
             popup.style.display = 'none';
-        };
-        var notification = alertify.notify('Ingresa los datos solicitados', 'error', 5, function(){  console.log('dismissed'); });
+        }else {
+            alertify.notify('Ingresa los datos solicitados', 'error', 5, function(){  console.log('dismissed'); });
+        }
     };
 
     const handleEnviar = e => {
@@ -49,12 +50,18 @@
         TelefonoU.set(Telefono);
         DireccionU.set(Direccion);
 
-        if (Nom != "" && iden != "" && tel != "" && dir != "") {
+        var celular = tel.toString();
+
+        if (celular.length < 10 || celular.length > 10){
+            alertify.notify('Ingresa un número de celular valido', 'error', 5, function(){  console.log('dismissed'); });
+        }else if(Nom != "" && iden != "" && celular.length == 10 && dir != ""){
+            alertify.notify('Gracias !', 'success', 5, function(){  console.log('dismissed'); });
             cerrar();
-        };
+        }
+        
         console.log(Nombre);
         console.log(NumeroIden);
-        console.log(Telefono);
+        console.log(celular.length);
         console.log(Direccion);
     };
 

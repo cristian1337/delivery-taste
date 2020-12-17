@@ -7,6 +7,7 @@
     import { navigate } from "svelte-routing";
     export let id;
 
+    let pedidos = [];
     let Nombre;
     let iden;
     let Cont;
@@ -14,6 +15,7 @@
     var indice;
     var precioP;
     var precioAux;
+    var cantidad = 0;
 
     const unsubscribe = NombreCliente.subscribe(value => {
 		Nombre = value;
@@ -70,15 +72,21 @@
     }];
 
     const agregarHamburguesa = async () => {
-        await db.collection('pedidos').doc().set({
-            ...pedido, createdAt: Date.now()
-        });
-        console.log(pedido);
-        navigate("/hamburguesas", { replace: false });
+        if (pedido.tipoDePan == ""){
+            alertify.notify('El tipo de pan es obligatorio', 'error', 5, function(){  console.log('dismissed'); });
+        }else {
+            alertify.notify('Producto agregado con exito', 'success', 2, function(){  console.log('dismissed'); });
+            await db.collection('pedidos').doc().set({
+                ...pedido, createdAt: Date.now()
+            });
+            console.log(pedido);
+            navigate("/hamburguesas", { replace: false });
+        }
     };
 
     let pedido = {
         hamburguesa: "",
+        tipoDePan: "",
         salsasH: "",
         acompañantes: [],
         adiciones: [],
@@ -141,6 +149,22 @@
             precioP = pedido.precio * contador;
         };
     };
+
+    db.collection('pedidos').where("idUsuario", "==", iden).onSnapshot(query => {
+        let docs = [];
+        cantidad = 0;
+        query.forEach(doc => {
+            docs.push({...doc.data(), id: doc.id})
+
+            pedidos = [doc.data()];
+            for (var i=0; i < pedidos.length; i++){
+            cantidad = pedidos[i].unidades + cantidad;
+        };
+        ContadorCarrito.set(cantidad);
+
+        });
+        pedidos = [...docs];
+    });
 
     onMount( function() {
 
@@ -564,7 +588,7 @@
         </div>
         
         <div class="titulo-adicion">
-            <h5>Salsas (obligatorio)</h5>
+            <h5>Salsas</h5>
         </div>
         <div class="opciones">
             <label class="custom-radio-checkbox">
