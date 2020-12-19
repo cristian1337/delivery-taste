@@ -25,13 +25,17 @@
             docs.push({...doc.data(), id: doc.id})
 
             pedidos = [doc.data()];
+            if (pedidos.length == 0){
+                cantidad = 0;
+            };
             for (var i=0; i < pedidos.length; i++){
             cantidad = pedidos[i].unidades + cantidad;
             precio = pedidos[i].precio + precio;
-        };
-        ContadorCarrito.set(cantidad);
+            };
+        
 
         });
+        ContadorCarrito.set(cantidad);
         pedidos = [...docs];
     });
 
