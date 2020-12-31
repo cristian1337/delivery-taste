@@ -79,36 +79,29 @@
         <a href="./hamburguesas" use:link>
             <div class="menu-container-hamburguesas alto radius centrar-titulo sombra">
                 <div class="titulo-menu">
-                    <p>Hamburguesas</p>
+                    <p>HAMBURGUESAS</p>
                 </div>
             </div>
         </a>
-        <div class="flex">
+        <!--<div class="flex">
             <div class="menu-container-maicitos alto radius centrar-titulo sombra">
                 <div class="titulo-menu">
-                    <p>Maicitos</p>
+                    <p>MAICITOS</p>
                 </div>
             </div>
             <div class="menu-container-healty alto radius centrar-titulo sombra">
-                <p class="titulo-menu">Healty</p>
+                <p class="titulo-menu">HEALTY</p>
             </div>
-        </div>
+        </div>-->
         
         <div class="menu-container-combos alto radius centrar-titulo sombra">
             <div class="titulo-menu">
-                <p>Combos</p>
+                <p>COMBOS</p>
             </div>
         </div>
-        <div class="flex">
-            <div class="menu-container-delicias alto radius centrar-titulo sombra">
-                <div class="titulo-menu"> 
-                    <p>Otras delicias</p>
-                </div>
-            </div>
-            <div class="menu-container-adiciones alto radius centrar-titulo sombra">
-                <div class="titulo-menu">
-                    <p>Adiciones</p>
-                </div>
+        <div class="menu-container-delicias alto radius centrar-titulo sombra">
+            <div class="titulo-menu"> 
+                <p>OTRAS DELICIAS</p>
             </div>
         </div>
         <div id="popup" class="overlay">
@@ -167,8 +160,9 @@
         padding-left: 30px;
     }
     .container {
-            margin: 15px;
-        }
+        margin: 10px;
+        height: 85vh;
+    }
         a {
             text-decoration: none;
         }
@@ -190,11 +184,15 @@
             box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
         }
         .menu-container-hamburguesas {
-            background-image: url(../imagenes/hamburguesas.jpg);
+            background-image: url(../imagenes/BannerH.jpg);
+            background-size: contain;
+            height: 120px;
             width: 100%;
         }
         .menu-container-combos {
-            background-image: url(../imagenes/combos.jpg);
+            background-image: url(../imagenes/BannerC.jpg);
+            background-size: contain;
+            height: 120px;
             width: 100%;
         }
         .titulo-menu {
@@ -205,7 +203,7 @@
             font-weight: bold;
             font-size: 13px;
         }
-        .menu-container-maicitos{
+        /*.menu-container-maicitos{
             background-image: url(../imagenes/maicitos.jpg);
             width: 50%;
             background-size: cover;
@@ -215,21 +213,21 @@
             background-image: url(../imagenes/healty.jpg);
             width: 50%;
             background-size: cover;
-        }
+        }*/
         .menu-container-delicias {
-            background-image: url(../imagenes/delicias.jpg);
-            width: 50%;
-            background-size: cover;
-            margin-right: 15px;
+            background-image: url(../imagenes/BannerO.jpg);
+            width: 100%;
+            background-size: contain;
+            height: 120px;
         }
-        .menu-container-adiciones {
+        /*.menu-container-adiciones {
             background-image: url(../imagenes/adiciones.jpg);
             width: 50%;
             background-size: cover;
         }
         .flex {
             display: flex;
-        }
+        }*/
         .overlay { 
             position: fixed;
             top: 0;

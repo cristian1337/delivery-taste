@@ -92,14 +92,14 @@
 
 <div class="navegacion sombra">
 	<Link to='/'><div>
-		<img src="../imagenes/inicio.svg" width="30px" alt="inicio">
+		<img src="../imagenes/inicio-taste.svg" width="45px" alt="inicio">
 	</div></Link>
 	<Link to='/carrito'><div>
-		<img src="../imagenes/carrito.svg" width="30px" alt="carrito">
+		<img src="../imagenes/carrito-taste.svg" width="45px" alt="carrito">
 		<span class="detalles-carrito">{Cont}</span>
 	</div></Link>
 	<Link to='/usuario'><div>
-		<img src="../imagenes/usuario.svg" width="30px" alt="usuario">
+		<img src="../imagenes/usuario-taste.svg" width="45px" alt="usuario">
 	</div></Link>
 </div>
 </Router>
@@ -138,7 +138,7 @@
             padding: 3px 5px;
             border-radius: 3px;
             background: #F84C02;
-            margin-top: -5px;
+            margin-top: 5px;
         }
         .detalles-carrito::before{
             content: '';
