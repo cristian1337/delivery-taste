@@ -5,6 +5,8 @@
     import Carrito from './pages/carrito.svelte'
     import Usuario from './pages/usuario.svelte'
     import Hamburguesas from './pages/hamburguesas.svelte';
+    import Combos from './pages/combos.svelte';
+    import CombosDetalles from './pages/combosDetalles.svelte';
     import HamburguesaDetalles from './pages/hamburguesaDetalles.svelte';
     import { ContadorCarrito, NombreCliente, Identificacion } from './store';
 
@@ -88,6 +90,8 @@
     <Route path="/"><Menu /></Route>
     <Route path="hamburguesas"><Hamburguesas /></Route>
     <Route path='/hamburguesa/:id' let:params ><HamburguesaDetalles id ="{params.id}" /></Route>
+    <Route path="combos"><Combos /></Route>
+    <Route path='/combo/:id' let:params ><CombosDetalles id ="{params.id}" /></Route>
 </div>
 
 <div class="navegacion sombra">

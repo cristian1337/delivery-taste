@@ -93,12 +93,13 @@
                 <p class="titulo-menu">HEALTY</p>
             </div>
         </div>-->
-        
-        <div class="menu-container-combos alto radius centrar-titulo sombra">
-            <div class="titulo-menu">
-                <p>COMBOS</p>
+        <a href="./combos" use:link>
+            <div class="menu-container-combos alto radius centrar-titulo sombra">
+                <div class="titulo-menu">
+                    <p>COMBOS</p>
+                </div>
             </div>
-        </div>
+        </a>
         <div class="menu-container-delicias alto radius centrar-titulo sombra">
             <div class="titulo-menu"> 
                 <p>OTRAS DELICIAS</p>
