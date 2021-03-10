@@ -8,6 +8,8 @@
     import Combos from './pages/combos.svelte';
     import CombosDetalles from './pages/combosDetalles.svelte';
     import HamburguesaDetalles from './pages/hamburguesaDetalles.svelte';
+    import OtrasDelicias from './pages/otrasDelicias.svelte';
+    import OtrasDeliciasDetalles from './pages/otrasDeliciasDetalles.svelte'
     import { ContadorCarrito, NombreCliente, Identificacion } from './store';
 
     export let url = '';
@@ -92,6 +94,8 @@
     <Route path='/hamburguesa/:id' let:params ><HamburguesaDetalles id ="{params.id}" /></Route>
     <Route path="combos"><Combos /></Route>
     <Route path='/combo/:id' let:params ><CombosDetalles id ="{params.id}" /></Route>
+    <Route path="otras-delicias"><OtrasDelicias /></Route>
+    <Route path='/otras-delicias/:id' let:params ><OtrasDeliciasDetalles id ="{params.id}" /></Route>
 </div>
 
 <div class="navegacion sombra">

@@ -100,11 +100,13 @@
                 </div>
             </div>
         </a>
-        <div class="menu-container-delicias alto radius centrar-titulo sombra">
-            <div class="titulo-menu"> 
-                <p>OTRAS DELICIAS</p>
+        <a href="./otras-delicias" use:link>
+            <div class="menu-container-delicias alto radius centrar-titulo sombra">
+                <div class="titulo-menu"> 
+                    <p>OTRAS DELICIAS</p>
+                </div>
             </div>
-        </div>
+        </a>
         <div id="popup" class="overlay">
             <div id="popupBody">
                 <h2>¡Bienvenido a TASTE!</h2>
