@@ -73,7 +73,7 @@
                 <p>Cantidad:</p>
                 <p class="contador"><strong>{pedido.unidades}</strong></p>
             </div>
-            <button class="btn-borrar" on:click|self={eliminar} data-id="{pedido.id}"><i class="far fa-trash-alt"></i></button>
+            <button class="btn-borrar" on:click|self={eliminar} data-id="{pedido.id}"><i on:click|self={eliminar} data-id="{pedido.id}" class="far fa-trash-alt"></i></button>
         </div>
         <details>
             <summary>
