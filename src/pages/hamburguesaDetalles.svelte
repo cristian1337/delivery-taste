@@ -35,7 +35,7 @@
         hamburguesa: "Hamburguesa Clasica",
         peso: "150g",
         precio: 11000,
-        imagen: "../imagenes/hamburguesa.png",
+        imagen: "../imagenes/banner-clasica.jpg",
         descripcion: "150 gramos de jugosa carne artesanal, lechuga y tomate frescos, queso mozarella fundido, tocineta ahumada y acompañada con salsas de la casa."
     },
     {
@@ -43,7 +43,7 @@
         hamburguesa: "Hamburguesa Doble",
         peso: "300g",
         precio: 14000,
-        imagen: "../imagenes/hamburguesa.png",
+        imagen: "../imagenes/banner-doble.jpg",
         descripcion: "2 porciones de 150 gramos de jugosa carne artesanal con 2 capas queso mozzarella fundido, tomate y lechuga frescos, tocineta ahumada y  salsas de la casa"
     },
     {
@@ -51,7 +51,7 @@
         hamburguesa: "Hamburguesa Extra queso",
         peso: "150g",
         precio: 13000,
-        imagen: "../imagenes/hamburguesa.png",
+        imagen: "../imagenes/banner-extraqueso.jpg",
         descripcion: "150 gramos de jugosa carne artesanal acompañadas de capas de queso mozzarella y queso parrilla derretidos en tu hamburguesa, tocineta ahumada y acompañada de salsas de la casa."
     },
     {
@@ -59,7 +59,7 @@
         hamburguesa: "Hamburguesa Colonial",
         peso: "150g",
         precio: 13000,
-        imagen: "../imagenes/hamburguesa.png",
+        imagen: "../imagenes/banner-colonial.jpg",
         descripcion: "Diferente pero nuestra, elaborada con carne de la casa y acompañada de crocantes aros de cebolla apanados, lechuga y tomate frescos, con una capa de suave aguacate picado, tocineta ahumada y salsas de la casa. "
     },
     {
@@ -67,7 +67,7 @@
         hamburguesa: "Hamburguesa Field burger",
         peso: "200g",
         precio: 15000,
-        imagen: "../imagenes/hamburguesa.png",
+        imagen: "../imagenes/banner-field.jpg",
         descripcion: "Con una mezcla perfecta de sabores, nuestros 200 gr de carne de Angus acompañada de salsa de la casa, tocineta ahumada y queso fundido hacen de nuestra field burguer uno de nuestros productos Premium. "
     }];
 
@@ -167,6 +167,10 @@
     });
 
     onMount( function() {
+
+        const imagen = document.getElementById('imagen');
+
+        imagen.style.backgroundImage = `url(${Listahamburguesas[indice].imagen})`;
 
         const checks = document.getElementById('check');
         let check = false;
@@ -548,8 +552,8 @@
 
     
 </script>
-<div class="imagen">
-        
+<div class="imagen" id="imagen">
+    
 </div>
 <div class="descripcion">
     <p><strong>{Listahamburguesas[indice].hamburguesa}:</strong> {Listahamburguesas[indice].descripcion}</p>
@@ -758,7 +762,6 @@
         margin-right: 10px;
     }
     .imagen {
-            background-image: url(../imagenes/hamburguesa-detalles.jpg);
             width: 100vw;
             height: 150px;
             background-position: center top;
